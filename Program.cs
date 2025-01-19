@@ -1,6 +1,6 @@
-using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using ProductAPI.Data; // Az új `AppDbContext` használatához
+using Pomelo.EntityFrameworkCore.MySql;
+using ProductAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +15,11 @@ builder.Services.AddCors(options =>
         });
 });
 
-// 🔹 Adatbázis kapcsolat hozzáadása
+// Adatbázis kapcsolat hozzáadása
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 29))));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -27,15 +27,15 @@ table {
 }
 th,
 td {
-  border: 1px solid #ddd;
+  border: 1px solid #e5e1da;
   padding: 10px;
   text-align: left;
 }
 th {
-  background-color: #ffdab3;
+  background-color: #f1f0e8;
 }
 button {
-  background-color: #574964;
+  background-color: #89a8b2;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -46,6 +46,6 @@ button {
 }
 
 button:hover {
-  background-color: #9f8383;
+  background-color: #b3c8cf;
 }
 </style>

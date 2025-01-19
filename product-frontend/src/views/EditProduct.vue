@@ -36,7 +36,7 @@ export default {
   },
   async created() {
     const productId = this.$route.params.id; // 🔹 ID az URL-ből
-    console.log("📡 Lekérdezett termék ID:", productId);
+    console.log("Lekérdezett termék ID:", productId);
 
     if (!productId) {
       this.errorMessage = "Hiba: A termék ID nem található!";
@@ -49,9 +49,9 @@ export default {
         `http://localhost:5019/api/Product/${productId}`
       );
       this.product = response.data; // 🔹 Betöltjük az adatokat
-      console.log("✅ Termék betöltve:", this.product);
+      console.log("Termék betöltve:", this.product);
     } catch (error) {
-      console.error("❌ Hiba a termék lekérdezésekor:", error);
+      console.error("Hiba a termék lekérdezésekor:", error);
       this.errorMessage = "Nem sikerült betölteni az adatokat.";
     } finally {
       this.loading = false;
@@ -66,7 +66,7 @@ export default {
         );
         this.$router.push("/products"); // 🔹 Visszairányítás a listához
       } catch (error) {
-        console.error("❌ Hiba a termék módosításakor:", error);
+        console.error("Hiba a termék módosításakor:", error);
       }
     },
     cancelEdit() {
@@ -84,16 +84,16 @@ table {
 }
 th,
 td {
-  border: 1px solid #ddd;
+  border: 1px solid #e5e1da;
   padding: 10px;
   text-align: left;
 }
 th {
-  background-color: #ffdab3;
+  background-color: #f1f0e8;
 }
 /* Gombok stílusa */
 button {
-  background-color: #574964;
+  background-color: #89a8b2;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -104,16 +104,16 @@ button {
 }
 
 button:hover {
-  background-color: #9f8383;
+  background-color: #b3c8cf;
 }
 
 /* Hozzáadás űrlap */
 form {
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ffdab3;
+  border: 1px solid #89a8b2;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #e5e1da;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -122,17 +122,17 @@ form {
 
 input {
   padding: 8px;
-  border: 1px solid #c8aaaa;
+  border: 1px solid #e5e1da;
   border-radius: 5px;
 }
 
 /* Hozzáadás gomb külön szín */
 button[type="submit"] {
-  background-color: #574964;
+  background-color: #89a8b2;
 }
 
 button[type="submit"]:hover {
-  background-color: #574964;
+  background-color: #b3c8cf;
 }
 .error {
   color: red;

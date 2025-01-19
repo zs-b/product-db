@@ -1,20 +1,20 @@
 body {
-    font-family: Calibri, sans-serif;
-    background-color: #f2f2f2;
+    font-family: Roboto, sans-serif;
+    background-color: #f1f0e8;
     margin: 0;
     padding: 20px;
   }
   
   /* Címek stílusa */
   h1 {
-    color: #333;
+    color: #89a8b2;
     text-align: center;
   }
   
   /* Alap linkek stílusa */
   a {
     text-decoration: none;
-    color: #574964;
+    color: #89a8b2;
   }
   
   a:hover {
@@ -29,18 +29,18 @@ body {
   }
   
   th, td {
-    border: 1px solid #FFDAB3;
+    border: 1px solid #e5e1da;
     padding: 10px;
     text-align: left;
   }
   
   th {
-    background-color: #FFDAB3;
+    background-color: #f1f0e8;
   }
   
   /* Gombok alapstílusa */
   button {
-    background-color: #574964;
+    background-color: #89a8b2;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -51,5 +51,5 @@ body {
   }
   
   button:hover {
-    background-color: #9F8383;
+    background-color: #b3c8cf;
   }

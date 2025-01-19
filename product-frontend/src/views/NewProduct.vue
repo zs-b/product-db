@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 button {
-  background-color: #574964;
+  background-color: #89a8b2;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -65,25 +65,25 @@ button {
 }
 
 button:hover {
-  background-color: #9f8383;
+  background-color: #b3c8cf;
 }
 form {
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ffdab3;
+  border: 1px solid #89a8b2;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #e5e1da;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 300px;
 }
 button[type="submit"] {
-  background-color: #574964;
+  background-color: #89a8b2;
 }
 
 button[type="submit"]:hover {
-  background-color: #574964;
+  background-color: #b3c8cf;
 }
 .error {
   color: red;
