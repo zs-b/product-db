@@ -6,4 +6,4 @@ services:
     region: frankfurt
     plan: free
     buildCommand: "curl -sSL https://dot.net/v1/dotnet-install.sh | bash && export PATH=$HOME/.dotnet:$PATH && dotnet restore && dotnet build"
-    startCommand: "/opt/render/.dotnet/dotnet run"
+    startCommand: "export PATH=$HOME/.dotnet:$PATH && dotnet run"
