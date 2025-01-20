@@ -34,4 +34,7 @@ app.UseSwaggerUI();
 app.UseAuthorization();
 app.MapControllers();
 
+// 🔹 ALAPÉRTELMEZETT ÚTVONAL HOZZÁADÁSA
+app.MapGet("/", () => "Welcome to the Product API!");
+
 app.Run();

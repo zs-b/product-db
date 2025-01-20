@@ -4087,7 +4087,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zsuzsi\\.nuget\\packages\\": {}
+    "C:\\Users\\bito\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4095,16 +4095,18 @@
       "projectUniqueName": "C:\\Project\\ProductAPI\\ProductAPI.csproj",
       "projectName": "ProductAPI",
       "projectPath": "C:\\Project\\ProductAPI\\ProductAPI.csproj",
-      "packagesPath": "C:\\Users\\Zsuzsi\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\bito\\.nuget\\packages\\",
       "outputPath": "C:\\Project\\ProductAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zsuzsi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\bito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
