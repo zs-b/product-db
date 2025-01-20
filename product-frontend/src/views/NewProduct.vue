@@ -39,7 +39,10 @@ export default {
     async addProduct() {
       try {
         console.log("📤 Új termék küldése:", this.newProduct);
-        await axios.post("http://localhost:5019/api/Product", this.newProduct);
+        await axios.post(
+          "https://product-api.azurewebsites.net/api/Product",
+          this.newProduct
+        );
         this.$router.push("/products"); // 🔹 Sikeres hozzáadás után visszatérés a listára
       } catch (error) {
         console.error("❌ Hiba a termék hozzáadásakor:", error);

@@ -46,7 +46,7 @@ export default {
 
     try {
       const response = await axios.get(
-        `http://localhost:5019/api/Product/${productId}`
+        `https://product-api.azurewebsites.net/api/Product/${productId}`
       );
       this.product = response.data; // 🔹 Betöltjük az adatokat
       console.log("Termék betöltve:", this.product);
@@ -61,7 +61,7 @@ export default {
     async updateProduct() {
       try {
         await axios.put(
-          `http://localhost:5019/api/Product/${this.product.id}`,
+          `https://product-api.azurewebsites.net/api/Product/${this.product.id}`,
           this.product
         );
         this.$router.push("/products"); // 🔹 Visszairányítás a listához
