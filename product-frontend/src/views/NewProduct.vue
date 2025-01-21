@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { api } from "../api";
 
 export default {
   data() {
@@ -39,11 +39,8 @@ export default {
     async addProduct() {
       try {
         console.log("📤 Új termék küldése:", this.newProduct);
-        await axios.post(
-          "https://product-api.azurewebsites.net/api/Product",
-          this.newProduct
-        );
-        this.$router.push("/products"); // 🔹 Sikeres hozzáadás után visszatérés a listára
+        await api.addProduct(this.newProduct);
+        this.$router.push("/products"); // Sikeres hozzáadás után visszatérés a listára
       } catch (error) {
         console.error("❌ Hiba a termék hozzáadásakor:", error);
       }

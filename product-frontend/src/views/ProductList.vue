@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { api } from "../api";
 
 export default {
   data() {
@@ -65,9 +65,7 @@ export default {
     async fetchProducts() {
       try {
         console.log("🔍 API lekérdezés indul...");
-        const response = await axios.get(
-          "https://product-api.azurewebsites.net/api/Product"
-        );
+        const response = await api.fetchProducts();
         console.log("✅ API válasz:", response.data);
         this.products = response.data;
       } catch (error) {
@@ -78,11 +76,8 @@ export default {
     async addProduct() {
       try {
         console.log("📤 Új termék küldése:", this.newProduct);
-        await axios.post(
-          "https://product-api.azurewebsites.net/api/Product",
-          this.newProduct
-        );
-        await this.fetchProducts(); // 🔹 Lista frissítése
+        await api.addProduct(this.newProduct);
+        await this.fetchProducts(); // Lista frissítése
         this.newProduct = { code: "", name: "", description: "", price: null }; // 🔹 Form ürítése
       } catch (error) {
         console.error("❌ Hiba a termék hozzáadásakor:", error);
@@ -92,10 +87,8 @@ export default {
     async deleteProduct(productId) {
       try {
         console.log("🗑 Termék törlése, ID:", productId);
-        await axios.delete(
-          `https://product-api.azurewebsites.net/api/Product/${productId}`
-        );
-        await this.fetchProducts(); // 🔹 Lista frissítése törlés után
+        await api.deleteProduct(productId);
+        await this.fetchProducts(); // Lista frissítése törlés után
       } catch (error) {
         console.error("❌ Hiba a termék törlésekor:", error);
       }

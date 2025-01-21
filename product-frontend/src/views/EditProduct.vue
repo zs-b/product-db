@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { api } from "../api";
 
 export default {
   data() {
@@ -45,10 +45,8 @@ export default {
     }
 
     try {
-      const response = await axios.get(
-        `https://product-api.azurewebsites.net/api/Product/${productId}`
-      );
-      this.product = response.data; // 🔹 Betöltjük az adatokat
+      const response = await api.fetchProductById(productId);
+      this.product = response.data; // Betöltjük az adatokat
       console.log("Termék betöltve:", this.product);
     } catch (error) {
       console.error("Hiba a termék lekérdezésekor:", error);
@@ -60,10 +58,7 @@ export default {
   methods: {
     async updateProduct() {
       try {
-        await axios.put(
-          `https://product-api.azurewebsites.net/api/Product/${this.product.id}`,
-          this.product
-        );
+        await api.updateProduct(this.product.id, this.product);
         this.$router.push("/products"); // 🔹 Visszairányítás a listához
       } catch (error) {
         console.error("Hiba a termék módosításakor:", error);
