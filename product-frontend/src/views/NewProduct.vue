@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Termék módosítása</h1>
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
 
     <form @submit.prevent="addProduct">
       <label for="code">Kód:</label>
@@ -33,6 +34,7 @@ export default {
         description: "",
         price: null,
       },
+      errorMessage: "",
     };
   },
   methods: {
@@ -41,12 +43,15 @@ export default {
         console.log("📤 Új termék küldése:", this.newProduct);
         await api.addProduct(this.newProduct);
         this.$router.push("/products"); // Sikeres hozzáadás után visszatérés a listára
+        this.errorMessage = "";
       } catch (error) {
         console.error("❌ Hiba a termék hozzáadásakor:", error);
+        this.errorMessage =
+          "Nem sikerült a termék hozzáadása. Kérlek, próbáld újra!";
       }
     },
     cancelAdd() {
-      this.$router.push("/products"); // 🔹 Ha a felhasználó mégsem akar hozzáadni
+      this.$router.push("/products"); // Ha a felhasználó mégsem akar hozzáadni
     },
   },
 };
@@ -87,5 +92,7 @@ button[type="submit"]:hover {
 }
 .error {
   color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 </style>

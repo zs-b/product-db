@@ -7,6 +7,7 @@
       <button>Új termék hozzáadása</button>
     </router-link>
 
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     <!-- 🔹 Terméklista táblázat -->
     <table border="1">
       <thead>
@@ -52,6 +53,7 @@ export default {
         price: null,
       },
       editingProduct: null,
+      errorMessage: "",
     };
   },
   async created() {
@@ -70,6 +72,8 @@ export default {
         this.products = response.data;
       } catch (error) {
         console.error("❌ Hiba az API hívásban:", error);
+        this.errorMessage =
+          "Nem sikerült betölteni a termékeket. Kérlek, próbáld újra!";
       }
     },
 
@@ -81,6 +85,8 @@ export default {
         this.newProduct = { code: "", name: "", description: "", price: null }; // 🔹 Form ürítése
       } catch (error) {
         console.error("❌ Hiba a termék hozzáadásakor:", error);
+        this.errorMessage =
+          "Nem sikerült a terméket hozzáadni. Kérlek, próbáld újra!";
       }
     },
 
@@ -91,6 +97,8 @@ export default {
         await this.fetchProducts(); // Lista frissítése törlés után
       } catch (error) {
         console.error("❌ Hiba a termék törlésekor:", error);
+        this.errorMessage =
+          "Nem sikerült a terméket törölni. Kérlek, próbáld újra!";
       }
     },
   },
@@ -154,5 +162,11 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #b3c8cf;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 </style>

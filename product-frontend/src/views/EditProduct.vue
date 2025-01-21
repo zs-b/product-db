@@ -59,13 +59,13 @@ export default {
     async updateProduct() {
       try {
         await api.updateProduct(this.product.id, this.product);
-        this.$router.push("/products"); // 🔹 Visszairányítás a listához
+        this.$router.push("/products"); // Visszairányítás a listához
       } catch (error) {
         console.error("Hiba a termék módosításakor:", error);
       }
     },
     cancelEdit() {
-      this.$router.push("/products"); // 🔹 Ha a felhasználó mégsem akar módosítani
+      this.$router.push("/products"); // Ha a felhasználó mégsem akar módosítani
     },
   },
 };
